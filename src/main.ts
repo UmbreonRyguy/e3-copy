@@ -49,15 +49,59 @@ nose.setAttribute("stroke-width", "4");
 nose.setAttribute("stroke-linecap", "round");
 face.append(nose);
 
-const mouth = document.createElementNS("http://www.w3.org/2000/svg", "line");
-mouth.setAttribute("x1", "75");
-mouth.setAttribute("y1", "137");
-mouth.setAttribute("x2", "125");
-mouth.setAttribute("y2", "137");
-mouth.setAttribute("stroke", "#302c29");
-mouth.setAttribute("stroke-width", "4");
-mouth.setAttribute("stroke-linecap", "round");
+const mouth = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+mouth.setAttribute("cx", "100");
+mouth.setAttribute("cy", "142");
+mouth.setAttribute("rx", "12");
+mouth.setAttribute("ry", "16");
+mouth.setAttribute("fill", "#302c29");
 face.append(mouth);
+
+const browL = document.createElementNS("http://www.w3.org/2000/svg", "line");
+browL.setAttribute("x1", "60");
+browL.setAttribute("y1", "55");
+browL.setAttribute("x2", "90");
+browL.setAttribute("y2", "40");
+browL.setAttribute("stroke", "#302c29");
+browL.setAttribute("stroke-width", "4");
+browL.setAttribute("stroke-linecap", "round");
+face.append(browL);
+
+const browR = document.createElementNS("http://www.w3.org/2000/svg", "line");
+browR.setAttribute("x1", "110");
+browR.setAttribute("y1", "40");
+browR.setAttribute("x2", "142");
+browR.setAttribute("y2", "55");
+browR.setAttribute("stroke", "#302c29");
+browR.setAttribute("stroke-width", "4");
+browR.setAttribute("stroke-linecap", "round");
+face.append(browR);
+
+//function to create a dot on the face
+function dot(cx: number, cy: number, r: number, fill: string, opacity = 1) {
+  const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  c.setAttribute("cx", cx.toFixed(1));
+  c.setAttribute("cy", cy.toFixed(1));
+  c.setAttribute("r", r.toFixed(1));
+  c.setAttribute("fill", fill);
+  c.setAttribute("opacity", opacity.toFixed(2));
+  face.append(c);
+}
+
+//Add freckles to each side of the face
+for (const side of [-1, 1]) {
+  for (let i = 0; i < 55; i++) {
+    const angle = i * 2.39996;
+    const dist = 2.4 * Math.sqrt(i + 1);
+    dot(
+      100 + side * 45 + dist * Math.cos(angle),
+      118 + dist * Math.sin(angle),
+      1.2 + 0.5 * (i % 3),
+      "#b5651d",
+      0.8,
+    );
+  }
+}
 
 portrait.append(face);
 
