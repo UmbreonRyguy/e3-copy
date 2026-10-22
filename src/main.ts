@@ -54,6 +54,24 @@ function buildFace(): SVGElement {
   nose.setAttribute("stroke-linecap", "round");
   face.append(nose);
 
+  const hat = document.createElementNS("http://www.w3.org/2000/svg", "image");
+  hat.setAttribute("href", "src/assets/hat.svg");
+  hat.setAttribute("x", "75");
+  hat.setAttribute("y", "-10");
+  hat.setAttribute("width", "50");
+  hat.setAttribute("height", "50");
+  face.append(hat);
+
+  const tie = document.createElementNS("http://www.w3.org/2000/svg", "image");
+  tie.setAttribute("href", "src/assets/Tie.svg");
+  tie.setAttribute("x", "75");
+  tie.setAttribute("y", "150");
+  tie.setAttribute("width", "50");
+  tie.setAttribute("height", "50");
+  face.append(tie);
+
+  face.append(hat);
+
   const mouth = document.createElementNS("http://www.w3.org/2000/svg", "line");
   mouth.setAttribute("x1", "75");
   mouth.setAttribute("y1", "137");
