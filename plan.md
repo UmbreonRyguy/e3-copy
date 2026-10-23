@@ -4,7 +4,7 @@ I will use lots of teardrop shapes to create tears and make the face sad. Probab
 Criterion: Is not too clutered with all the tears.
 Alteration: The tears ended up being cluttered so I switched it to freckles instead.
 
-## B - Explored
+## B - Chosen
 
 I will draw a top hat and a tie image myself using ms paint, to add ontop and below the face.
 Criteria: The art style is not too differeing from the face
